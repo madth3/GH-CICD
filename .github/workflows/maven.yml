@@ -21,6 +21,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Saves jar file
+      uses: actions/upload-artifact@v4
+      with:
+        name: JARFILE
+        path: target/taller-1.0.jar
       
   deploy-docker-hub:
     needs: build
@@ -32,6 +37,11 @@ jobs:
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Recovers jar file
+      uses: actions/download-artifact@v4
+      with:
+        name: JARFILE
+        path: taller-1.0.jar
     - name: Build and push image
       uses: docker/build-push-action@v6
       with:

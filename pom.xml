@@ -10,7 +10,7 @@
     </parent>
     <groupId>mx.lania</groupId>
     <artifactId>taller</artifactId>
-    <version>0.0.1</version>
+    <version>1.0</version>
     <name>TallerSpring</name>
     <description>Proyecto usando persistencia</description>
     <properties>
