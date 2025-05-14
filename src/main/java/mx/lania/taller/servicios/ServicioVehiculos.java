@@ -34,6 +34,8 @@ public class ServicioVehiculos {
                 return v;
             }
         }
+        // Cliente no existe, hay que guardarlo.
+        // Reseteamos id a null para que la BD asigne uno, en caso de trajera un valor espurio desde
         cl.setClienteId(null);
         cl = repoClientes.save(cl);
         v.setCliente(cl);
